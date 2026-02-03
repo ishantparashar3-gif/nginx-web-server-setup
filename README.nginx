@@ -1,0 +1,125 @@
+Nginx Web Server Setup on Linux
+
+Project Type: Linux System Administration
+
+Author: Ishant Parashar
+OS: Ubuntu 24.04 LTS
+Environment: Virtual Machine (Local Lab)
+
+📌  Project Overview
+This project demonstrates how to set up and configure an Nginx web server on a Linux system.
+The goal was to understand how a real Linux server hosts a website and how services are managed at the system level.
+The project simulates a basic production-style web server.
+
+🛠️ Tools & Technologies Used
+Linux (Ubuntu 24.04 LTS)
+Nginx Web Server
+Systemd
+Nano Editor
+Terminal / CLI
+📂 Project Structure
+
+/var/www/
+└── secure-site/
+    └── index.html
+
+/etc/nginx/
+└── sites-available/
+    └── secure-site
+└── sites-enabled/
+    └── secure-site
+
+🔹 Step 1: Install Nginx
+
+Installed Nginx using the package manager and verified the service status.
+Copy code
+Bash
+sudo apt update
+sudo apt install nginx
+Checked service status:
+Copy code
+Bash
+sudo systemctl status nginx
+✔ Nginx service started successfully.
+
+🔹 Step 2: Create Website Directory
+
+Created a custom directory to host the website.
+Copy code
+Bash
+sudo mkdir -p /var/www/secure-site
+Set ownership and permissions:
+Copy code
+Bash
+sudo chown -R $USER:$USER /var/www/secure-site
+sudo chmod -R 755 /var/www/secure-site
+
+🔹 Step 3: Create Web Page
+
+Created a simple HTML page.
+Copy code
+Bash
+nano /var/www/secure-site/index.html
+Sample content:
+
+Html
+<h1>Welcome to my Nginx Web Server</h1>
+<p>Project by Ishant Parashar</p>
+
+🔹 Step 4: Configure Nginx Server Block
+
+Created a custom server block configuration.
+Copy code
+Bash
+sudo nano /etc/nginx/sites-available/secure-site
+Configured Nginx to serve content from /var/www/secure-site.
+Enabled the site:
+
+Bash
+sudo ln -s /etc/nginx/sites-available/secure-site /etc/nginx/sites-enabled/
+Tested configuration:
+Copy code
+Bash
+sudo nginx -t
+Restarted Nginx:
+Copy code
+Bash
+sudo systemctl restart nginx
+
+🔹 Step 5: Verify Website
+
+Opened browser and accessed:
+Copy code
+
+http://localhost
+✔ Custom web page displayed successfully
+✔ Nginx working as expected
+🧪 Troubleshooting Performed
+During the project, I resolved issues such as:
+404 Not Found errors
+Missing directories
+Incorrect file permissions
+Nginx service restart failures
+This helped improve my Linux debugging skills.
+
+Screenshots
+
+Screenshots included:
+Nginx service status
+Custom web page output
+Configuration files
+(Available in repository)
+
+📈 What I Learned
+
+How Nginx works on Linux
+Linux directory structure for web servers
+Managing services using systemctl
+File permissions and ownership
+Basic web server troubleshooting
+
+
+🎯 Project Outcome
+✔ Successfully hosted a custom website
+✔ Gained hands-on Linux server experience
+✔ Built a strong foundation for DevOps learning
