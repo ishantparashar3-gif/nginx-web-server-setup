@@ -118,8 +118,11 @@ Managing services using systemctl
 File permissions and ownership
 Basic web server troubleshooting
 
-
 🎯 Project Outcome
 ✔ Successfully hosted a custom website
 ✔ Gained hands-on Linux server experience
 ✔ Built a strong foundation for DevOps learning
+## Screenshots
+   - Nginx default page 
+   - Custom index page 
+   - Service status (systemctl status nginx)
